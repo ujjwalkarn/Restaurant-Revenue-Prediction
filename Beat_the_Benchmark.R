@@ -16,7 +16,7 @@ test$day<-as.factor(day(as.POSIXlt(test$Open.Date, format="%m/%d/%Y")))
 test$month<-as.factor(month(as.POSIXlt(test$Open.Date, format="%m/%d/%Y")))
 test$year<-as.factor(year(as.POSIXlt(test$Open.Date, format="%m/%d/%Y")))
 
-#select relavant columns
+#select relevant columns
 train_cols<-train[,c(3:42,44:46)]
 labels<-as.matrix(train[,43])
 testdata<-test[,3:45]
@@ -25,7 +25,7 @@ testdata<-test[,3:45]
 train_cols <- data.frame(lapply(train_cols,as.numeric))
 testdata<-data.frame(lapply(testdata,as.numeric))
 
-#run suport vector regression and predict on test data
+#run support vector regression and predict on test data
 fit<- svm(x=as.matrix(train_cols),y=labels,cost=10,scale=TRUE,type="eps-regression")
 predictions<-as.data.frame(predict(fit,newdata=testdata))
 
