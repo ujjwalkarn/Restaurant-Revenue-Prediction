@@ -22,6 +22,8 @@ labels<-as.matrix(train[,43])
 testdata<-test[,3:45]
 
 #convert all columns to numeric
+#please note that this is not advised as the categorical factors are converted to numeric as well 
+#encoding each factor level as a distinct integer is not recommended, use other methods such as one-hot encoding
 train_cols <- data.frame(lapply(train_cols,as.numeric))
 testdata<-data.frame(lapply(testdata,as.numeric))
 
